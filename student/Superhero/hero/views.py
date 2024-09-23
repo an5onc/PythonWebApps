@@ -41,7 +41,7 @@ heroes = {
 
 # View to display the list of heroes
 class HeroListView(TemplateView):
-    template_name = 'heroes.html'
+    template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
