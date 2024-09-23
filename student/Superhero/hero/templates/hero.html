@@ -1,0 +1,14 @@
+{% extends 'superhero_theme.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="hero-profile">
+        <h1>{{ title }}</h1>
+        <p><strong>Real Identity:</strong> {{ id }}</p>
+        <img src="{{ image }}" alt="{{ title }}'s profile picture" width="500">
+        <p><strong>Strengths:</strong> {{ strengths }}</p>
+        <p><strong>Weaknesses:</strong> {{ weaknesses }}</p>
+        <a href="/" class="btn btn-primary">Back to Heroes List</a>
+    </div>
+{% endblock %}
