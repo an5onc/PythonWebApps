@@ -1,13 +1,12 @@
 {% extends 'theme.html' %}
-
-
+{% load static %}
 
 {% block content %}
 
 <h3>Photo Detail</h3>
 
 <p>
-    <img class="photo" src="/{{ photo.file }}" alt="Chapter {{ photo.id }}">
+    <img class="photo" src="{% static 'images/' %}{{ photo.file.name }}" alt="Chapter {{ photo.id }}">
 </p>
 <p>
     CAPTION:
@@ -15,12 +14,10 @@
     {{ photo.caption }}
     {% else %}
     No caption
-    {% endif%}
-
+    {% endif %}
 </p>
 <p>
     FILE PATH: {{ photo.file }}
 </p>
-
 
 {% endblock content %}
