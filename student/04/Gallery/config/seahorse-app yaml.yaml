@@ -1,0 +1,46 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+envs:
+- key: DEBUG
+  scope: RUN_AND_BUILD_TIME
+  value: "True"
+- key: DISABLE_COLLECTSTATIC
+  scope: RUN_AND_BUILD_TIME
+  value: "1"
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: pythonwebapps
+    match:
+      path:
+        prefix: /
+  - component:
+      name: pythonwebapp
+    match:
+      path:
+        prefix: /static
+name: seahorse-app
+region: nyc
+services:
+- environment_slug: python
+  github:
+    branch: my-bacs-350-code
+    deploy_on_push: true
+    repo: an5onc/PythonWebApps
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: pythonwebapps
+  run_command: gunicorn --worker-tmp-dir /dev/shm config.wsgi
+  source_dir: student/04/Gallery
+static_sites:
+- environment_slug: html
+  github:
+    branch: my-bacs-350-code
+    deploy_on_push: true
+    repo: an5onc/PythonWebApps
+  name: pythonwebapp
+  source_dir: student/04/Gallery
