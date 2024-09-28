@@ -6,7 +6,7 @@ from django.http import Http404
 def photo_list():
     def photo_details(i, f):
         caption = f'Caption for Photo {i}' if i == 1 else None
-        return dict(id=i, file=f, caption=caption)
+        return dict(id=i, file=f.name, caption=caption)
 
     # Ensure the directory exists and is not empty
     image_dir = Path('static/images')

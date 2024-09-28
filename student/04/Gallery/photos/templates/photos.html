@@ -5,8 +5,8 @@
 
 <div class="photo-gallery">
     {% for photo in photos %}
-    <a href="/photo/{{ photo.id }}">
-        <img class="photo" src="{% static 'images/' %}{{ photo.file.name }}" alt="Chapter {{ photo.id }}" width="200">
+    <a href="{% url 'photo-detail' photo.id %}">
+        <img class="photo" src="{% static 'images/' %}{{ photo.file }}" alt="Chapter {{ photo.id }}" width="200">
     </a>
     {% endfor %}
 </div>
