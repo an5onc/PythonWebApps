@@ -120,7 +120,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",  # Optional, for development use only
-    STATIC_ROOT = BASE_DIR / "staticfiles"
 ]
 
   # This is where static files will be collected
