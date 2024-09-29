@@ -39,11 +39,6 @@ INSTALLED_APPS = [
     'photos',
 ]
 
-# On Digital Ocean it will use the Static Server
-# Locally you need to enable the static media server (Images, CSS, Javascript)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
