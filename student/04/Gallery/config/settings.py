@@ -122,9 +122,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",  # This is for development (optional if you serve static files in your app)
 ]
 
-# This is the directory where Django will collect static files in production
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
