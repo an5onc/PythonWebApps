@@ -1,0 +1,12 @@
+{% extends 'theme.html' %}
+{% load static %}  <!-- Load static tag at the top -->
+
+{% block content %}
+<div class="gallery">
+    {% for photo in photos %}
+    <a href="/photo/{{ photo }}">
+        <img src="{% static 'images/' %}{{ photo }}" alt="{{ photo }}" width="200" />
+    </a>
+    {% endfor %}
+</div>
+{% endblock content %}

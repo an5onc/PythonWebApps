@@ -1,26 +1,22 @@
 {% extends 'theme.html' %}
 
-
-
 {% block content %}
 
 <h3>Photo Detail</h3>
 
 <p>
-    <img class="photo" src="/{{ photo.file }}" alt="Chapter {{ photo.id }}">
+    <img class="photo" src="{{ photo }}" alt="Photo">
 </p>
 <p>
     CAPTION:
-    {% if photo.caption %}
-    {{ photo.caption }}
+    {% if caption %}
+    {{ caption }}
     {% else %}
     No caption
-    {% endif%}
-
+    {% endif %}
 </p>
 <p>
-    FILE PATH: {{ photo.file }}
+    FILE PATH: {{ photo }}
 </p>
-
 
 {% endblock content %}

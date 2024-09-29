@@ -1,7 +1,6 @@
 from django.views.generic import RedirectView
 from django.urls import path
-
-from photos.views import PhotoDetailView, PhotoListView
+from photos.views import PhotoListView, PhotoView
 
 
 urlpatterns = [
@@ -11,5 +10,5 @@ urlpatterns = [
 
     # Photos
     path('photo/', PhotoListView.as_view()),
-    path('photo/<int:id>', PhotoDetailView.as_view()),
+    path('photo/<int:id>', PhotoView.as_view()),
 ]

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Lilly's Photo Gallery{% endblock %}</title>
+    <style>
+        /* Updated playful and girly styling */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* playful font */
+            background-color: #ffe4e1; /* light pink background */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff69b4; /* Hot pink header */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add a soft shadow for style */
+            border-bottom: 5px solid #ff1493; /* Darker pink for a border */
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive; /* Cute and curly font */
+            font-size: 2.5em;
+        }
+
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the images */
+        }
+
+        .gallery img {
+            margin: 15px;
+            border: 5px solid #ffb6c1; /* Pink border around each image */
+            border-radius: 15px; /* Rounded edges */
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effects */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+        }
+
+        .gallery a {
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            margin-top: 30px;
+            border-top: 3px solid #ff1493; /* Darker pink border at the top */
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+
+    <!-- Optionally include Google Fonts for Pacifico font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Lilly's Photo Shoot</h1>
+    </header>
+
+    <div class="content">
+        {% block content %}
+        <!-- This block will be replaced by the specific content from child templates -->
+        {% endblock content %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Lilly's Photo Gallery - Woof!</p>
+    </footer>
+</body>
+</html>
