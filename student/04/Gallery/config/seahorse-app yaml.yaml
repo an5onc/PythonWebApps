@@ -7,7 +7,7 @@ envs:
   value: "True"
 - key: DISABLE_COLLECTSTATIC
   scope: RUN_AND_BUILD_TIME
-  value: "1"
+  value: "0"
 features:
 - buildpack-stack=ubuntu-22
 ingress:
