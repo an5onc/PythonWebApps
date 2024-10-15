@@ -4,17 +4,19 @@
 Delete Hero
 {% endblock title %}
 
-
 {% block content %}
+<div class="container my-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center text-danger">Delete Hero</h2>
+        <p class="text-center">Are you sure you want to delete "<strong>{{ object.name }}</strong>"?</p>
 
-<div class="container m-5">
-
-    <form action="" method="post">{% csrf_token %}
-        <p>Are you sure you want to delete "{{ object.title }}"?</p>
-        <input type="submit" value="Confirm">
-        <a href="{% url 'hero_list' %}" class="btn btn-secondary">Cancel</a>
-    </form>
-
+        <div class="d-flex justify-content-center">
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" name="confirm" class="btn btn-danger mx-3">Confirm</button>
+                <a href="{% url 'hero_list' %}" class="btn btn-secondary mx-3">Cancel</a>
+            </form>
+        </div>
+    </div>
 </div>
-
 {% endblock content %}
