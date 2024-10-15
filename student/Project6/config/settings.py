@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'hero',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'  # or 'bootstrap5' if you're using Bootstrap 5
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -124,3 +125,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add this to the end of your settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

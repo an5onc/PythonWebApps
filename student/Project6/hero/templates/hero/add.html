@@ -1,4 +1,4 @@
-{% extends 'theme.html' %}
+{% extends 'hero/theme.html' %}
 
 {% block title %}
 Add New Hero
@@ -11,13 +11,16 @@ Add New Hero
 
     <h2>Add a New Hero</h2>
 
-    <form action="" method="post">
+    <!-- Make sure to include enctype for file uploads -->
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
-
+        
         <button class="btn btn-success m-5" type="submit">Save Record</button>
-        <!-- Only include this if editing a hero, not adding a new one -->
-        <!-- <a class="btn btn-danger m-5" href="{% url 'hero_delete' hero.id %}">Delete Record</a> -->
+    
+        {% if hero and hero.pk %}
+            <a class="btn btn-danger m-5" href="{% url 'hero_delete' hero.pk %}">Delete Record</a>
+        {% endif %}
     </form>
 
 </div>
