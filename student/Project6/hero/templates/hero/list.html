@@ -1,45 +1,26 @@
-{% extends 'theme.html' %}
-
+{% extends 'hero/theme.html' %}
 
 {% block title %}
-List of Heroes
-{% endblock title %}
-
+    Heroes List
+{% endblock %}
 
 {% block content %}
+    <h2>Meet Our Heroes</h2>
 
-<div class="row">
-
-    <div class="card col-lg">
-
-        <table class="table table-hover">
-            <tr>
-                <th>Name</th>
-                <th>ID</th>
-            </tr>
-
-            {% for hero in object_list %}
-            <tr>
-                <td><a href="/{{ hero.pk }}">{{ hero.name }}</a></td>
-                <td>{{ hero.identity }}</td>
-                <td>
-                    {% if hero.image %}
-                    <img src="/media/{{ hero.image.image }}" alt="{{ hero.image.title }}" width="100">
-                    {% else %}
-                    No image available
-                    {% endif %}
-                </td>
-            </tr>
+    {% if heroes %}
+        <ul>
+            {% for hero in heroes %}
+                <li>
+                    <strong>{{ hero.name }}</strong> ({{ hero.identity }})
+                    <p>{{ hero.description }}</p>
+                    <p>Strengths: {{ hero.strengths }}</p>
+                    <p>Weaknesses: {{ hero.weaknesses }}</p>
+                </li>
             {% endfor %}
-
-        </table>
-
-        <p>
-            <a href="/add" class="btn btn-success m-5">Add New Hero</a>
-        </p>
-
-    </div>
-
-</div>
-
-{% endblock content %}
+        </ul>
+    {% else %}
+        <p>No heroes found.</p>
+    {% endif %}
+    
+    <a href="{% url 'hero_add' %}" class="new-hero">Add New Hero</a>
+{% endblock %}
