@@ -17,8 +17,9 @@
         <h1>Join My Superhero Team</h1>
         <nav>
             <ul>
-                <li><a href="{% url 'hero_list' %}">Heroes List</a></li>
+                <!-- Remove 'hero_edit' and 'hero_delete' as they need a specific hero's pk -->
                 <li><a href="{% url 'hero_add' %}">Add New Hero</a></li>
+                <li><a href="{% url 'hero_list' %}">Heroes List</a></li>
             </ul>
         </nav>
     </header>

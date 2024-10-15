@@ -1,4 +1,4 @@
-{% extends 'theme.html' %}
+{% extends 'hero/theme.html' %}
 
 {% block title %}
 Delete Hero
@@ -12,6 +12,7 @@ Delete Hero
     <form action="" method="post">{% csrf_token %}
         <p>Are you sure you want to delete "{{ object.title }}"?</p>
         <input type="submit" value="Confirm">
+        <a href="{% url 'hero_list' %}" class="btn btn-secondary">Cancel</a>
     </form>
 
 </div>
