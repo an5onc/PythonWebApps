@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Superhero
 
-# Register your models here.
+@admin.register(Superhero)
+class SuperheroAdmin(admin.ModelAdmin):
+    list_display = ('name', 'identity', 'strengths', 'weaknesses')
