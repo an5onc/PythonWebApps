@@ -1,20 +1,62 @@
+<!-- login.html -->
+
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
 <head>
+    <!-- Meta Tags for Responsive Design and Accessibility -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Admin Login</title>
+    <!-- Link to the External CSS File -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Login</button>
-        </form>
-    </div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Admin Portal</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="login-section">
+            <h2>Admin Login</h2>
+            <p>Please enter your credentials to access the admin dashboard.</p>
+
+            <!-- Login Form -->
+            <form action="{% url 'login' %}" method="POST" class="login-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="button">Login</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Interlockgo-NOCO. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>

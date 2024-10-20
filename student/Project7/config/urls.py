@@ -1,21 +1,35 @@
+# your_project/urls.py
+
 from django.urls import path, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from superhero.views import HeroCreateView, HeroDeleteView, HeroDetailView, HeroListView, HeroUpdateView
+from superhero.views import (
+    HomePageView,
+    AboutPageView,
+    HeroCreateView,
+    HeroDeleteView,
+    HeroDetailView,
+    HeroListView,
+    HeroUpdateView,
+)
 
 urlpatterns = [
-    # Hero Views
-    path('', HeroListView.as_view(), name='hero_list'),          # Hero list
-    path('<int:pk>/', HeroDetailView.as_view(), name='hero_detail'),  # Hero detail
-    path('add/', HeroCreateView.as_view(), name='hero_add'),         # Add hero
-    path('<int:pk>/edit/', HeroUpdateView.as_view(), name='hero_edit'),  # Edit hero
-    path('<int:pk>/delete/', HeroDeleteView.as_view(), name='hero_delete'),  # Delete hero
+    # Home and About Views
+    path('', HomePageView.as_view(), name='home'),       # Home page
+    path('about/', AboutPageView.as_view(), name='about'),  # About page
 
-    # Login/Logout code
+    # Hero Views
+    path('heroes/', HeroListView.as_view(), name='hero_list'),            # Hero list
+    path('heroes/<int:pk>/', HeroDetailView.as_view(), name='hero_detail'),  # Hero detail
+    path('heroes/add/', HeroCreateView.as_view(), name='hero_add'),          # Add hero
+    path('heroes/<int:pk>/edit/', HeroUpdateView.as_view(), name='hero_edit'),  # Edit hero
+    path('heroes/<int:pk>/delete/', HeroDeleteView.as_view(), name='hero_delete'),  # Delete hero
+
+    # User Authentication
     path('accounts/', include('django.contrib.auth.urls')),
 
-    # Admin views for users
+    # Admin Views
     path('admin/', admin.site.urls),
 ]
 
