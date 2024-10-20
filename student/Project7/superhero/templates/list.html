@@ -1,0 +1,35 @@
+{% extends 'hero/theme.html' %}
+
+{% block title %}
+Meet Our Heroes
+{% endblock title %}
+
+{% block content %}
+<div class="container my-5 text-center">
+    <h2 class="section-title">Meet Our Heroes</h2>
+
+    {% for hero in object_list %}
+    <div class="card hero-card mb-4 p-3 shadow-lg">
+        <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <!-- Display hero image -->
+                <img src="{{ hero.image.url }}" class="img-fluid hero-image rounded" alt="{{ hero.name }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body text-start">
+                    <h3 class="card-title hero-name"><strong>{{ hero.name }}</strong> ({{ hero.identity }})</h3>
+                    <p class="hero-description">{{ hero.description }}</p>
+                    <p><strong>Strengths:</strong> {{ hero.strengths }}</p>
+                    <p><strong>Weaknesses:</strong> {{ hero.weaknesses }}</p>
+                    <a href="{% url 'hero_edit' hero.pk %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'hero_delete' hero.pk %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'hero_detail' hero.pk %}">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-muted">No heroes found.</p>
+    {% endfor %}
+</div>
+{% endblock content %}

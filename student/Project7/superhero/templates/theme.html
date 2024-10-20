@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Superhero Team{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Join My Superhero Team</h1>
+        <nav>
+            <ul>
+                <!-- Remove 'hero_edit' and 'hero_delete' as they need a specific hero's pk -->
+                <li><a href="{% url 'hero_add' %}">Add New Hero</a></li>
+                <li><a href="{% url 'hero_list' %}">Heroes List</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        
+        <p>This is the default content in the theme.</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Site. All rights reserved.</p>
+    </footer>
+</body>
+</html>
