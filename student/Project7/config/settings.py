@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'superhero',  # Your custom app
+    'crispy_forms',  # Third-party app
 ]
 
 MIDDLEWARE = [
