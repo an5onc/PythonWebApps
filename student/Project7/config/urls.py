@@ -29,6 +29,8 @@ urlpatterns = [
     # User Authentication
     path('accounts/', include('django.contrib.auth.urls')),
 
+    path('', include('superhero.urls')), 
+
     # Admin Views
     path('admin/', admin.site.urls),
 ]
