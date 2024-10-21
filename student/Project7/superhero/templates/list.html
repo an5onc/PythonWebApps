@@ -21,9 +21,9 @@ Meet Our Heroes
                     <p class="hero-description">{{ hero.description }}</p>
                     <p><strong>Strengths:</strong> {{ hero.strengths }}</p>
                     <p><strong>Weaknesses:</strong> {{ hero.weaknesses }}</p>
-                    <a href="{% url 'hero_edit' hero.pk %}" class="btn btn-primary">Edit</a>
-                    <a href="{% url 'hero_delete' hero.pk %}" class="btn btn-danger">Delete</a>
-                    <a href="{% url 'hero_detail' hero.pk %}">View Details</a>
+                    <a href="{% url 'edit' hero.pk %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete' hero.pk %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'detail' hero.pk %}">View Details</a>
                 </div>
             </div>
         </div>

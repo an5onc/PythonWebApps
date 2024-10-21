@@ -1,7 +1,7 @@
-# your_project/urls.py
+# config/urls.py
 
-from django.urls import path, include
 from django.contrib import admin
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from superhero.views import (
@@ -20,19 +20,17 @@ urlpatterns = [
     path('about/', AboutPageView.as_view(), name='about'),  # About page
 
     # Hero Views
-    path('heroes/', HeroListView.as_view(), name='hero_list'),            # Hero list
-    path('heroes/<int:pk>/', HeroDetailView.as_view(), name='hero_detail'),  # Hero detail
-    path('heroes/add/', HeroCreateView.as_view(), name='hero_add'),          # Add hero
-    path('heroes/<int:pk>/edit/', HeroUpdateView.as_view(), name='hero_edit'),  # Edit hero
-    path('heroes/<int:pk>/delete/', HeroDeleteView.as_view(), name='hero_delete'),  # Delete hero
+    path('heroes/', HeroListView.as_view(), name='list'),            # Hero list
+    path('heroes/<int:pk>/', HeroDetailView.as_view(), name='detail'),  # Hero detail
+    path('heroes/add/', HeroCreateView.as_view(), name='add'),          # Add hero
+    path('heroes/<int:pk>/edit/', HeroUpdateView.as_view(), name='edit'),  # Edit hero
+    path('heroes/<int:pk>/delete/', HeroDeleteView.as_view(), name='delete'),  # Delete hero
 
     # User Authentication
-    path('accounts/', include('django.contrib.auth.urls')),
-
-    path('', include('superhero.urls')), 
+    path('accounts/', include('django.contrib.auth.urls')),  # Login, logout, password change, password reset
 
     # Admin Views
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # Django admin
 ]
 
 # Serve media files during development

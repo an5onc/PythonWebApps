@@ -13,4 +13,4 @@ class Superhero(models.Model):
         return self.identity
 
     def get_absolute_url(self):
-        return reverse_lazy('hero_list')  # Redirect to the hero list view
+        return reverse_lazy('list')  # Redirect to the hero list view

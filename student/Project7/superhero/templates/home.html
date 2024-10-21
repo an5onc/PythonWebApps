@@ -12,7 +12,7 @@
                 <div class="hero-card">
                     <h3>{{ hero.name }}</h3>
                     <p>{{ hero.description|truncatewords:20 }}</p>
-                    <a href="{% url 'hero_detail' hero.id %}" class="button">Read More</a>
+                    <a href="{% url 'detail' hero.id %}" class="button">Read More</a>
                 </div>
             {% endfor %}
         </div>
