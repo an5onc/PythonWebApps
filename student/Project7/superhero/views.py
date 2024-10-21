@@ -7,10 +7,10 @@ from django.views.generic import (
 from .models import Superhero
 from django.urls import reverse_lazy
 
-class HomePageView(TemplateView):
+class HomeView(TemplateView):    # Renamed HomePageView to HomeView
     template_name = 'home.html'
 
-class AboutPageView(TemplateView):
+class AboutView(TemplateView):   # Renamed AboutPageView to AboutView
     template_name = 'about.html'
 
 class SuperheroListView(ListView):
