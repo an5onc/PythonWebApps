@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Client
 from django.urls import reverse
-from .forms import ClientForm
+from .forms import RegisterForm, ClientForm
+from django.contrib.auth import login
 
 def client_list(request):
     clients = Client.objects.all()
@@ -44,3 +45,14 @@ def client_edit(request, client_id):
     else:
         form = ClientForm(instance=client)
     return render(request, 'client_form.html', {'form': form})
+
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Log in the user right after registration
+            return redirect('home')  # Redirect to the home page
+    else:
+        form = RegisterForm()
+    return render(request, 'register.html', {'form': form})

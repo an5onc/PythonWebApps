@@ -12,12 +12,12 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* gradient background */
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
             color: #333;
         }
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9); /* translucent background */
+            background: rgba(255, 255, 255, 0.9);
             padding: 50px 40px;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -33,7 +33,6 @@
             font-size: 2.8em;
             color: #333;
             margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-out;
         }
         p {
             font-size: 1.2em;
@@ -44,7 +43,7 @@
             text-decoration: none;
             font-size: 1.2em;
             color: #fff;
-            background: #333; /* dark background */
+            background: #333;
             padding: 12px 25px;
             border-radius: 30px;
             margin: 10px;
@@ -62,6 +61,12 @@
         .button.clients:hover {
             background: #ff5252;
         }
+        .button.register {
+            background: #4CAF50;  /* Green color for Register button */
+        }
+        .button.register:hover {
+            background: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -69,7 +74,8 @@
         <h1>Welcome to Interlock Go</h1>
         <p>Your trusted partner in interlock services</p>
         <a href="{% url 'client_list' %}" class="button clients">View Clients</a>
-        <a href="/admin/" class="button">Admin Panel</a>
+        <a href="{% url 'login' %}" class="button">Login</a>
+        <a href="{% url 'register' %}" class="button register">Register</a> <!-- New Register button -->
     </div>
 </body>
 </html>
