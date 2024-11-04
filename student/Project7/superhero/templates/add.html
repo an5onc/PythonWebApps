@@ -19,7 +19,7 @@ Add New Hero
         <button class="btn btn-success m-5" type="submit">Save Record</button>
     
         {% if hero and hero.pk %}
-            <a class="btn btn-danger m-5" href="{% url 'hero_delete' hero.pk %}">Delete Record</a>
+            <a class="btn btn-danger m-5" href="{% url 'delete' hero.pk %}">Delete Record</a>
         {% endif %}
     </form>
 
