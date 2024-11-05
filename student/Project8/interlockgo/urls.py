@@ -10,5 +10,6 @@ urlpatterns = [
     path('clients/<int:client_id>/delete/', views.client_delete, name='client_delete'),
     path('test/', views.test_page, name='test_page'),
     path('register/', views.register, name='register'),
+    path('profile/', views.profile, name='profile'),  # Profile page URL
     
 ]

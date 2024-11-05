@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Client
+from .models import Client, UserProfile
 from django.urls import reverse
-from .forms import RegisterForm, ClientForm
+from .forms import RegisterForm, ClientForm, ProfileForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 
 def client_list(request):
     clients = Client.objects.all()
@@ -56,3 +57,16 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
+
+@login_required
+def profile(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)  # Create profile if not exists
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=user_profile)
+    
+    return render(request, 'profile.html', {'form': form})
