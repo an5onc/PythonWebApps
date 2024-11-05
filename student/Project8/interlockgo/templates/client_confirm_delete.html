@@ -2,14 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delete Client</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Delete</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            animation: fadeIn 1.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .button {
+            font-size: 1.2em;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px 5px;
+        }
+        .button.confirm {
+            background: #ff6b6b; /* Red for confirm delete */
+        }
+        .button.confirm:hover {
+            background: #ff5252;
+        }
+        .button.cancel {
+            background: #333;
+        }
+        .button.cancel:hover {
+            background: #555;
+        }
+    </style>
 </head>
 <body>
-    <h1>Are you sure you want to delete {{ client.first_name }} {{ client.last_name }}?</h1>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Yes, delete</button>
-        <a href="{% url 'client_list' %}">Cancel</a>
-    </form>
+    <div class="container">
+        <h1>Confirm Delete</h1>
+        <p>This action is permanent and cannot be undone. Are you sure you want to delete this client?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="button confirm">Yes, Delete</button>
+            <a href="{% url 'client_list' %}" class="button cancel">Cancel</a>
+        </form>
+    </div>
 </body>
 </html>
