@@ -1,0 +1,20 @@
+{% extends 'theme.html' %}
+
+{% block title %}Home - Superhero Reporters{% endblock %}
+
+{% block content %}
+    <section class="home-section">
+        <h2>Welcome to Superhero Reporters</h2>
+        <p>Your one-stop portal for all superhero news and articles.</p>
+        <div class="hero-section">
+            <!-- You can include a list of featured superheroes or articles here -->
+            {% for hero in heroes %}
+                <div class="hero-card">
+                    <h3>{{ hero.name }}</h3>
+                    <p>{{ hero.description|truncatewords:20 }}</p>
+                    <a href="{% url 'detail' hero.id %}" class="button">Read More</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

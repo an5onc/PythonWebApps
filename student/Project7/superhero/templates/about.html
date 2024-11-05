@@ -1,0 +1,20 @@
+{% extends 'theme.html' %}
+
+{% block title %}About Us - Superhero Reporters{% endblock %}
+
+{% block content %}
+    <section class="about-section">
+        <h2>About Superhero Reporters</h2>
+        <p>
+            Superhero Reporters is a platform dedicated to bringing you the latest news and articles about superheroes from around the world. Our team of dedicated reporters works tirelessly to uncover stories that inspire and amaze.
+        </p>
+        <h3>Our Mission</h3>
+        <p>
+            To connect fans with the heroes they admire and to shed light on the extraordinary feats of these incredible individuals.
+        </p>
+        <h3>Join Us</h3>
+        <p>
+            Interested in contributing? <a href="{% url 'signup' %}">Sign up</a> to become a reporter today!
+        </p>
+    </section>
+{% endblock %}
