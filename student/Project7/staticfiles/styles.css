@@ -1,0 +1,244 @@
+/* styles.css */
+
+/* Root Variables for Easy Customization */
+:root {
+    --font-primary: 'Helvetica Neue', sans-serif;
+    --color-primary: #4a90e2;
+    --color-secondary: #50e3c2;
+    --color-accent: #ff6b6b;
+    --color-dark: #333;
+    --color-light: #fff;
+    --color-grey: #666;
+    --color-grey-light: #777;
+
+    --transition-default: 0.3s ease-in-out;
+    --border-radius: 5px;
+
+    --header-height: 60px;
+    --footer-height: 60px;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-dark);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: var(--header-height);
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+nav {
+    background-color: var(--color-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    outline: none;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+main h2 {
+    font-size: 2em;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1.1em;
+    color: var(--color-grey);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.hero-card {
+    background-color: var(--color-light);
+    border: 2px solid var(--color-primary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-default), box-shadow var(--transition-default);
+}
+
+.hero-card:hover,
+.hero-card:focus-within {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    outline: none;
+}
+
+.hero-card h3 {
+    font-size: 1.5em;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    color: var(--color-grey-light);
+    line-height: 1.5;
+}
+
+/* Buttons */
+.button {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-default);
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--color-dark);
+    outline: none;
+}
+
+/* Footer */
+footer {
+    height: var(--footer-height);
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    position: sticky;
+    bottom: 0;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    main h2 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* Additional Styles for the Login Form */
+
+.login-section {
+    max-width: 400px;
+    margin: auto;
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-dark);
+    font-weight: bold;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-grey-light);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    transition: border-color var(--transition-default);
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.login-form .button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+}

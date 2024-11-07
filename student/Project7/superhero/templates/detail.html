@@ -1,0 +1,50 @@
+{% extends 'theme.html' %}
+
+{% block title %}
+Hero Details
+{% endblock title %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h3 class="text-center">Hero Details</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <!-- Hero Image -->
+                <div class="col-md-4 text-center">
+                    <img src="/media/{{ object.image }}" class="img-fluid rounded shadow-sm" alt="{{ object.name }}" style="max-width: 100%; height: auto;">
+                </div>
+                
+                <!-- Hero Information -->
+                <div class="col-md-8">
+                    <table class="table table-striped">
+                        <tr>
+                            <td><strong>Name</strong></td>
+                            <td><a href="/{{ object.pk }}/" class="text-primary">{{ object.name }}</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Identity</strong></td>
+                            <td>{{ object.identity }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Strengths</strong></td>
+                            <td>{{ object.strengths }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weaknesses</strong></td>
+                            <td>{{ object.weaknesses }}</td>
+                        </tr>
+                    </table>
+
+                    <!-- Add New Hero Button -->
+                    <div class="text-center mt-4">
+                        <a href="{% url 'list' %}" class="btn btn-secondary mx-3">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
