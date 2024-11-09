@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u1d3!uog$uzs+28v(5ji4qw@!mdsndn$4e(+@!m#k4c^rfg8w7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['165.22.144.128 www.nocointerlock.com nocointerlock.com']
 
-# 165.22.144.128 
+# 165.22.144.128 www.nocointerlock.com nocointerlock.com
 # Application definition
 
 INSTALLED_APPS = [
@@ -119,6 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
