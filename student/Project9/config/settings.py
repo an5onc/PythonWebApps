@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-u1d3!uog$uzs+28v(5ji4qw@!mdsndn$4e(+@!m#k4c^rfg8w7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['165.22.144.128 www.nocointerlock.com nocointerlock.com']
+ALLOWED_HOSTS = ['165.22.144.128', 'www.nocointerlock.com', 'nocointerlock.com']
 
 # 165.22.144.128 www.nocointerlock.com nocointerlock.com
 # Application definition
@@ -70,7 +71,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+# Initialize environment variables
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
+# Read the .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
