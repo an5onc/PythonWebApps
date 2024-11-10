@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": environ.get("DATABASE_ENGINE"),
-        "NAME": environ.get("DATABASE_NAME"),
+        "ENGINE": environ.get("PG"),
+        "NAME": environ.get("db"),
     }
 }
 
