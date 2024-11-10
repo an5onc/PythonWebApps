@@ -73,11 +73,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-POSTGRES_DB = environ.get("POSTGRES_DB")  # database name
-POSTGRES_PASSWORD = environ.get("POSTGRES_PASSWORD")  # database user password
-POSTGRES_USER = environ.get("POSTGRES_USER")  # database username
-POSTGRES_HOST = environ.get("POSTGRES_HOST")  # database host
-POSTGRES_PORT = environ.get("POSTGRES_PORT")  # database port
+
 
 POSTGRES_READY = (
     POSTGRES_DB is not None
