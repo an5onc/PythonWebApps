@@ -71,13 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# Initialize environment variables
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-
-# Read the .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
