@@ -9,6 +9,10 @@ domains:
 - domain: nocointerlock.com
   type: PRIMARY
   zone: nocointerlock.com
+envs:
+- key: COLLECTSTATIC
+  scope: RUN_AND_BUILD_TIME
+  value: "1"
 features:
 - buildpack-stack=ubuntu-22
 ingress:
@@ -22,7 +26,7 @@ ingress:
       name: pythonwebapp
     match:
       path:
-        prefix: /staticfiles/admin
+        prefix: /staticfiles
 name: seahorse-app
 region: nyc
 services:
@@ -46,12 +50,6 @@ services:
   - key: POSTGRES_PORT
     scope: RUN_AND_BUILD_TIME
     value: ${db.PORT}
-  - key: DATABASE_ENGINE
-    scope: RUN_AND_BUILD_TIME
-    value: django.db.backends.postgresql
-  - key: DATABASE_NAME
-    scope: RUN_AND_BUILD_TIME
-    value: config/seahorse.db
   github:
     branch: my-bacs-350-code
     deploy_on_push: true
@@ -60,7 +58,11 @@ services:
   instance_count: 1
   instance_size_slug: apps-s-1vcpu-0.5gb
   name: pythonwebapps
-  run_command: gunicorn --worker-tmp-dir /dev/shm config.wsgi
+  run_command: |-
+    gunicorn --worker-tmp-dir /dev/shm config.wsgi
+    python manage.py loaddata books.json
+    python manage.py build books
+    python manage.py migrate --no-input
   source_dir: student/Project9/
 static_sites:
 - environment_slug: html
@@ -69,4 +71,4 @@ static_sites:
     deploy_on_push: true
     repo: an5onc/PythonWebApps
   name: pythonwebapp
-  source_dir: student/Project9/
+  source_dir: student/Project9/static
