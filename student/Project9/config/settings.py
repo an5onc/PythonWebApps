@@ -73,13 +73,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": environ.get("PG"),
-        "NAME": environ.get("db"),
-    }
-}
-
 POSTGRES_DB = environ.get("POSTGRES_DB")  # database name
 POSTGRES_PASSWORD = environ.get("POSTGRES_PASSWORD")  # database user password
 POSTGRES_USER = environ.get("POSTGRES_USER")  # database username
