@@ -76,11 +76,17 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # settings.py
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": environ.get("DATABASE_ENGINE"),
+        "NAME": environ.get("DATABASE_NAME"),
     }
 }
+
+POSTGRES_DB = environ.get("POSTGRES_DB")  # database name
+POSTGRES_PASSWORD = environ.get("POSTGRES_PASSWORD")  # database user password
+POSTGRES_USER = environ.get("POSTGRES_USER")  # database username
+POSTGRES_HOST = environ.get("POSTGRES_HOST")  # database host
+POSTGRES_PORT = environ.get("POSTGRES_PORT")  # database port
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
